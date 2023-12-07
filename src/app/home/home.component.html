@@ -1,0 +1,10 @@
+<h2 class="text-center mt-5 mb-5 text-danger">Mes tâches importantes</h2>
+<div *ngIf="important.length > 0" class="d-flex justify-content-center flex-wrap">
+    <div class="card" style="width: 18rem;" *ngFor="let tache of important; let i = index;"
+        [class.cardCompleted]="tache.completed">
+        <div class="card-header text-center">
+            <h3>{{tache.description}}</h3>
+        </div>
+    </div>
+</div>
+<h3 class="text-center mt-3"><a routerLink="/todo">Gérer mes tâches</a></h3>

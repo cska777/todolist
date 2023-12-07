@@ -1,0 +1,12 @@
+
+h3 a{
+    color: black;
+}
+h3 a:hover{
+    color:rgb(126, 20, 20)
+}
+
+.card{
+    border: 2px solid rgb(238, 171, 46);
+    margin: 1%;
+}

@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-end">
+    <button (click)="deleteAll()" class="btnAll">Tout supprimer</button>
+</div>
+<div class="d-flex justify-content-center">
+    <input class="form-control w-50 mt-5" type="text" [(ngModel)]="inputData" placeholder="Ajouter une nouvelle tâche"
+        (keyup.enter)="add()" />
+</div>
+<div class="d-flex justify-content-center mt-3">
+    <button class="btnAdd" (click)="add()">Ajouter</button>
+</div>
+<h2 class="text-center">Mes tâches</h2>
+<div *ngIf="todo.length > 0" class="d-flex justify-content-center flex-wrap">
+    <div class="card" style="width: 18rem;" *ngFor="let tache of todo; let i = index;"
+        [class.cardCompleted]="tache.completed">
+        <div class="card-header text-center">
+            <h3>{{tache.description}}</h3>
+            <div class="d-flex justify-content-center">
+                Valider la tâche <input class="form-check mx-3" type="checkbox" [(ngModel)]="tache.completed" />
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button (click)="delete(i)" class="btn btn-danger btnSupp">Supprimer</button>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button (click)="toggleImportant(i)" class="btn btn-danger btnImportant">Important</button>
+        </div>
+    </div>
+</div>
+<hr>
+<h2 class="text-center">Mes tâches importantes</h2>
+<div *ngIf="important.length > 0" class="d-flex justify-content-center flex-wrap">
+    <div class="card" style="width: 18rem;" *ngFor="let tache of important; let i = index;"
+        [class.cardCompleted]="tache.completed">
+        <div class="card-header text-center">
+            <h3>{{tache.description}}</h3>
+            <div class="d-flex justify-content-center">
+                Valider la tâche <input class="form-check mx-3" type="checkbox" [(ngModel)]="tache.completed" />
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button (click)="delete(i)" class="btn btn-danger btnSupp">Supprimer</button>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button (click)="deleteImportant(i)" class="btn btn-danger btnImportant">Enlever important</button>
+        </div>
+    </div>
+</div>
